@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Classificação | F1 Hub{% endblock %}
+
+{% block content %}
+
+<h2 class="text-danger mb-4">Classificação dos Pilotos — Temporada 2025</h2>
+
+<div class="table-responsive">
+    <table class="table table-dark table-hover table-bordered border-danger align-middle text-center">
+        <thead class="table-black text-danger">
+            <tr>
+                <th>Pos</th>
+                <th>Piloto</th>
+                <th>Equipe</th>
+                <th>Pontos</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for p in standings %}
+
+            {# ===== CLASSES DE DESTAQUE ===== #}
+            {% if loop.index == 1 %}
+                <tr class="table-warning text-dark fw-bold">
+            {% elif loop.index == 2 %}
+                <tr class="table-secondary fw-bold">
+            {% elif loop.index == 3 %}
+                <tr class="table-danger fw-bold">
+            {% else %}
+                <tr>
+            {% endif %}
+
+                <td>
+                    {% if loop.index == 1 %}🥇
+                    {% elif loop.index == 2 %}🥈
+                    {% elif loop.index == 3 %}🥉
+                    {% else %}
+                        {{ loop.index }}
+                    {% endif %}
+                </td>
+
+                <td class="text-start">
+                    <strong>{{ p.name }}</strong>
+                </td>
+
+                <td class="text-secondary text-start">
+                    {{ p.team }}
+                </td>
+
+                <td>
+                    <span class="badge bg-danger fs-6">
+                        {{ p.points }}
+                    </span>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

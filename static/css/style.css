@@ -1,0 +1,99 @@
+/* ---------------------------
+   F1 Premium Neon Theme
+---------------------------- */
+body {
+    background: #0d0d0d;
+    color: #e6e6e6;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+/* Neon red glow */
+.neon-red {
+    color: #ff1a1a !important;
+    text-shadow: 0 0 8px #ff1a1a, 0 0 16px #b30000;
+}
+
+/* Cards Modernos */
+.f1-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 18px;
+    border-radius: 14px;
+    transition: 0.25s;
+    box-shadow: 0 0 0px #000;
+}
+
+.f1-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 12px #ff1a1a55;
+    border-color: #ff1a1a;
+}
+
+/* Imagens dos cards */
+.f1-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+/* Títulos */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #ff1a1a;
+}
+
+/* Tabela F1 */
+.f1-table thead {
+    background: #ff1a1a;
+    color: white;
+}
+
+.f1-table tbody tr:hover {
+    background: #1a1a1a;
+}
+
+/* Botões neon */
+.btn-neon {
+    background: #ff1a1a;
+    border: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.btn-neon:hover {
+    background: #cc0000;
+    box-shadow: 0 0 12px #ff1a1a;
+}
+
+/* Grid responsivo dos cards */
+.f1-grid {
+    display: grid;
+    gap: 20px;
+}
+
+@media (min-width: 600px) {
+    .f1-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .f1-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1300px) {
+    .f1-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

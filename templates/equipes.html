@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Equipes | F1 Hub{% endblock %}
+
+{% block content %}
+
+<h2 class="text-danger mb-4">Equipes da Temporada</h2>
+
+<div class="row">
+    {% for e in equipes %}
+    <div class="col-md-3 mb-4">
+        <div class="card bg-black border border-danger text-light h-100 shadow">
+            <div class="card-body d-flex flex-column">
+
+                <h5 class="card-title">{{ e.name }}</h5>
+                <p class="text-secondary mb-2">Pontuação</p>
+
+                <span class="badge bg-danger mb-3">{{ e.points }} pts</span>
+
+                <div class="mt-auto d-grid">
+                    <a href="/equipe/{{ e.id }}" class="btn btn-outline-danger btn-sm">
+                        Ver equipe
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

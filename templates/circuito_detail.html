@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}{{ circuito.name }} | F1 Hub{% endblock %}
+
+{% block content %}
+
+<!-- TÍTULO -->
+<div class="mb-4">
+    <h2 class="section-title text-danger">
+        {{ circuito.name }}
+    </h2>
+    <p class="text-secondary fs-5">
+        {{ circuito.city }}, {{ circuito.country }}
+    </p>
+</div>
+
+<!-- CARD PRINCIPAL -->
+<div class="card bg-black border-danger text-light shadow-lg mb-4">
+    <div class="card-body">
+
+        <!-- DATA -->
+        <div class="mb-3">
+            <span class="badge bg-danger fs-6">
+                Data da corrida: {{ circuito.date | replace("-", "/") }}
+            </span>
+        </div>
+
+        <!-- DESCRIÇÃO -->
+        <div class="alert alert-dark border-danger">
+            {{ circuito.description }}
+        </div>
+
+    </div>
+</div>
+
+<!-- INFORMAÇÕES DO EVENTO -->
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-black border border-danger text-light h-100">
+            <div class="card-body">
+                <h6 class="text-danger">📍 Local</h6>
+                <p class="mb-0">
+                    {{ circuito.city }}<br>
+                    {{ circuito.country }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-black border border-danger text-light h-100">
+            <div class="card-body">
+                <h6 class="text-danger">🏁 Temporada</h6>
+                <p class="mb-0">Fórmula 1 – 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card bg-black border border-danger text-light h-100">
+            <div class="card-body">
+                <h6 class="text-danger">📅 Status</h6>
+                <p class="mb-0">
+                    {% if circuito.date >= "2025-01-01" %}
+                        Etapa confirmada
+                    {% else %}
+                        Etapa encerrada
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- VOLTAR -->
+<div class="mt-4">
+    <a href="{{ url_for('circuitos') }}" class="btn btn-outline-danger">
+        ← Voltar para o calendário
+    </a>
+</div>
+
+{% endblock %}

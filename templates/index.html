@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Home | F1 Hub{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<div class="p-5 mb-4 bg-black rounded-3 border border-danger">
+    <div class="container-fluid py-4">
+        <h1 class="display-5 fw-bold text-danger">F1 HUB 2025</h1>
+        <p class="col-md-8 fs-5 text-secondary">
+            Acompanhe pilotos, equipes, circuitos e classificação da temporada atual.
+        </p>
+    </div>
+</div>
+
+<!-- CLASSIFICAÇÃO PILOTOS -->
+<h3 class="text-danger mb-3">Top Pilotos</h3>
+<div class="row">
+    {% for d in drivers %}
+    <div class="col-md-3 mb-4">
+        <div class="card bg-black border border-danger text-light h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ d.name }}</h5>
+                <p class="card-text text-secondary">{{ d.team }}</p>
+                <span class="badge bg-danger">{{ d.points }} pts</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

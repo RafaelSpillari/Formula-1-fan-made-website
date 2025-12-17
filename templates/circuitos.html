@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Circuitos | F1 Hub{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title text-danger mb-4">
+    Calendário da Temporada 2025
+</h2>
+
+<div class="row">
+    {% for c in circuitos %}
+    <div class="col-md-4 mb-4">
+        <div class="card bg-black border border-danger text-light h-100 shadow-lg">
+
+            <div class="card-body d-flex flex-column">
+
+                <h5 class="card-title text-danger fw-bold">
+                    {{ c.name }}
+                </h5>
+
+                <p class="text-secondary mb-1">
+                    {{ c.city }} • {{ c.country }}
+                </p>
+
+                <span class="badge bg-danger align-self-start mb-3">
+                    {{ c.date | replace("-", "/") }}
+                </span>
+
+                <p class="text-light small">
+                    {{ c.description if c.description else "Descrição indisponível." }}
+                </p>
+
+                <div class="mt-auto d-grid">
+                    <a href="{{ url_for('circuito_detail', id=c.id) }}"
+                       class="btn btn-outline-danger btn-sm">
+                        Ver detalhes
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}F1 Fan Site{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bg-dark text-light">
+
+    <!-- NAVBAR F1 PREMIUM -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-lg border-bottom border-danger">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger" href="/">
+                F1<span class="text-light">Hub</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navF1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navF1">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pilotos">Pilotos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/equipes">Equipes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/circuitos">Circuitos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/classificacao">Classificação</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/calendario">Calendário</a></li>
+
+                    {% if session.get('user') %}
+                        <li class="nav-item">
+                            <span class="nav-link text-info">
+                                Olá, {{ session.get('user') }}
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="/logout">Sair</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-success" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" href="/register">Cadastro</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <main class="container py-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 mt-4 border-top border-danger bg-black">
+        <small class="text-secondary">
+            © 2025 — F1 Hub | Projeto acadêmico sem fins lucrativos
+        </small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS personalizado -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ equipe.name }} | F1 Hub{% endblock %}
+
+{% block content %}
+
+<div class="card bg-black border border-danger text-light shadow-lg mb-4">
+    <div class="card-body">
+
+        <h2 class="text-danger">{{ equipe.name }}</h2>
+        <hr class="border-danger">
+
+        <p class="fs-5">
+            <strong>Pontos no campeonato:</strong>
+            <span class="badge bg-danger">{{ equipe.points }}</span>
+        </p>
+
+    </div>
+</div>
+
+<h4 class="text-danger mb-3">Pilotos da equipe</h4>
+
+<div class="row">
+    {% for p in pilotos %}
+    <div class="col-md-3 mb-3">
+        <div class="card bg-black border border-secondary text-light h-100">
+            <div class="card-body">
+                <h6 class="card-title">{{ p.name }}</h6>
+                <span class="badge bg-secondary">{{ p.points }} pts</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="/equipes" class="btn btn-outline-light mt-4">
+    ← Voltar para equipes
+</a>
+
+{% endblock %}

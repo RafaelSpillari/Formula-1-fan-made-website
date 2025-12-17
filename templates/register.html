@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Cadastro — F1 Hub{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title text-center mb-4">Criar Conta</h2>
+
+<div class="d-flex justify-content-center">
+    <div class="f1-card p-4" style="width: 420px;">
+
+        <!-- MENSAGEM DE ERRO -->
+        {% if error %}
+            <div class="alert alert-danger text-center">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <!-- MENSAGEM DE SUCESSO -->
+        {% if success %}
+            <div class="alert alert-success text-center">
+                {{ success }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label class="form-label">Nome</label>
+            <input
+                type="text"
+                class="form-control mb-3"
+                name="name"
+                required
+            >
+
+            <label class="form-label">E-mail</label>
+            <input
+                type="email"
+                class="form-control mb-3"
+                name="email"
+                required
+            >
+
+            <label class="form-label">Senha</label>
+            <input
+                type="password"
+                class="form-control mb-3"
+                name="password"
+                required
+            >
+
+            <button class="btn btn-neon w-100">
+                Cadastrar
+            </button>
+        </form>
+
+        <p class="text-center text-secondary mt-3">
+            Já tem conta?
+            <a href="{{ url_for('login') }}" class="text-danger">
+                Entrar
+            </a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

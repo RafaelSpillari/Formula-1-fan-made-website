@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Pilotos | F1 Hub{% endblock %}
+
+{% block content %}
+
+{% set team_colors = {
+    "Red Bull Racing": "#1e41ff",
+    "McLaren": "#ff8000",
+    "Ferrari": "#dc0000",
+    "Mercedes": "#00d2be",
+    "Aston Martin": "#006f62",
+    "Williams": "#005aff",
+    "Alpine": "#0090ff",
+    "Kick Sauber": "#00ff00",
+    "Haas F1 Team": "#ffffff",
+    "Racing Bulls": "#2b4562"
+} %}
+
+<h2 class="text-danger mb-4">Pilotos da Temporada</h2>
+
+<div class="row">
+    {% for p in pilotos %}
+    {% set team_color = team_colors.get(p.team, "#dc0000") %}
+
+    <div class="col-md-3 mb-4">
+        <div class="card bg-black text-light h-100 shadow"
+             style="border-top: 4px solid {{ team_color }}">
+
+            <div class="card-body text-center">
+
+                <h5 class="card-title"
+                    style="color: {{ team_color }}">
+                    {{ p.name }}
+                </h5>
+
+                <p class="card-text text-secondary mb-2">
+                    {{ p.team }}
+                </p>
+
+                <span class="badge bg-danger mb-3">
+                    {{ p.points }} pts
+                </span>
+
+                <div class="d-grid mt-3">
+                    <a href="{{ url_for('driver_detail', id=p.id) }}"
+                       class="btn btn-outline-danger btn-sm">
+                        Ver perfil
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

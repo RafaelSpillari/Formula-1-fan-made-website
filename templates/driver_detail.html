@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}{{ piloto.name }} | F1 Hub{% endblock %}
+
+{% block content %}
+
+<!-- HEADER DO PILOTO -->
+<div class="mb-4">
+    <h2 class="section-title text-danger">
+        {{ piloto.name }}
+    </h2>
+
+    <p class="text-secondary fs-5">
+        {{ piloto.team }} • {{ piloto.nationality }} • {{ piloto.age }} anos
+    </p>
+</div>
+
+<!-- STATS PRINCIPAIS -->
+<div class="row mb-4">
+
+    <div class="col-md-2 col-6 mb-3">
+        <div class="card bg-black border-danger text-light text-center h-100">
+            <div class="card-body">
+                <h6 class="text-danger">Títulos</h6>
+                <h3>{{ piloto.titles }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-6 mb-3">
+        <div class="card bg-black border-danger text-light text-center h-100">
+            <div class="card-body">
+                <h6 class="text-danger">Vitórias</h6>
+                <h3>{{ piloto.wins }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-6 mb-3">
+        <div class="card bg-black border-danger text-light text-center h-100">
+            <div class="card-body">
+                <h6 class="text-danger">Pódios</h6>
+                <h3>{{ piloto.podiums }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-6 mb-3">
+        <div class="card bg-black border-danger text-light text-center h-100">
+            <div class="card-body">
+                <h6 class="text-danger">Poles</h6>
+                <h3>{{ piloto.poles }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 col-6 mb-3">
+        <div class="card bg-black border-danger text-light text-center h-100">
+            <div class="card-body">
+                <h6 class="text-danger">Pontos</h6>
+                <h3>{{ piloto.points }}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- CAREER INFO -->
+<div class="card bg-black border-danger text-light shadow mb-4">
+    <div class="card-body">
+        <h5 class="text-danger mb-3">Career Stats</h5>
+
+        <ul class="list-group list-group-flush bg-black">
+
+            <li class="list-group-item bg-black text-light border-secondary">
+                <strong>Equipe atual:</strong> {{ piloto.team }}
+            </li>
+
+            <li class="list-group-item bg-black text-light border-secondary">
+                <strong>Primeira temporada na F1:</strong> {{ piloto.first_season }}
+            </li>
+
+            <li class="list-group-item bg-black text-light border-secondary">
+                <strong>Temporadas na F1:</strong>
+                {{ 2025 - piloto.first_season + 1 }}
+            </li>
+
+            <li class="list-group-item bg-black text-light border-secondary">
+                <strong>Nacionalidade:</strong> {{ piloto.nationality }}
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!-- VOLTAR -->
+<a href="{{ url_for('pilotos') }}" class="btn btn-outline-danger">
+    ← Voltar aos pilotos
+</a>
+
+{% endblock %}

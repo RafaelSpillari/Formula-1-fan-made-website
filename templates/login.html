@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Login — F1 Hub{% endblock %}
+
+{% block content %}
+
+<h2 class="section-title text-center mb-4">Login</h2>
+
+<div class="d-flex justify-content-center">
+    <div class="f1-card p-4" style="width: 380px;">
+
+        <!-- MENSAGEM DE ERRO -->
+        {% if error %}
+            <div class="alert alert-danger text-center">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label class="form-label">E-mail</label>
+            <input
+                type="email"
+                class="form-control mb-3"
+                name="email"
+                required
+            >
+
+            <label class="form-label">Senha</label>
+            <input
+                type="password"
+                class="form-control mb-3"
+                name="password"
+                required
+            >
+
+            <button class="btn btn-neon w-100">
+                Entrar
+            </button>
+        </form>
+
+        <p class="text-center text-secondary mt-3">
+            Não tem cadastro?
+            <a href="{{ url_for('register') }}" class="text-danger">
+                Criar conta
+            </a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}
+

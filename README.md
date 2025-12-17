@@ -135,7 +135,8 @@ Após a execução, a aplicação estará disponível em:
 
 http://localhost:8000
 
-7. Observações
+
+### 7. Observações
 
 Dados consolidados da Fórmula 1
 
@@ -147,7 +148,7 @@ Valores podem ser ajustados para fins acadêmicos
 
 O layout foi desenvolvido com inspiração em portais esportivos modernos, sem reutilização de conteúdo proprietário.
 
-8. Conceitos Aplicados
+### 8. Conceitos Aplicados
 
 Arquitetura MVC
 
@@ -161,7 +162,7 @@ Organização de projetos web
 
 Boas práticas de desenvolvimento
 
-🔄 Atualizações Futuras
+### 🔄 Atualizações Futuras
 
 O projeto será atualizado em versões futuras para:
 
@@ -175,8 +176,10 @@ Expansão para temporadas passadas
 
 O F1 Hub é um projeto contínuo, que evoluirá conforme novas ideias, aprendizados e temporadas marcantes da Fórmula 1.
 
-9. Autor
+### 9. Autor
 
 Rafael Spillari
+
 Projeto Acadêmico — Curso de Ciência da Computação
+
 Ano: 2025
